@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useAxios from '../utils/useAxios';
 import { useNavigate } from 'react-router-dom';
-import { setAuthToken } from '../utils/SetAuthToken';
 
 //mockData
 const successMockData = {

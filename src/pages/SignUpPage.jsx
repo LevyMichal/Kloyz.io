@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from '../utils/useAxios';
+import useAxios from '../utils/useAxios';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
@@ -8,11 +8,13 @@ export default function SignUpPage() {
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
+    const instanceAxios = useAxios()
+
 
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/signUp', { email, password });
+            const response = await instanceAxios.post('/signUp', { email, password });
             const { data } = response;
 
             if (data) {
