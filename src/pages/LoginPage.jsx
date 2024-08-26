@@ -86,6 +86,7 @@ export default function LoginPage() {
 
             <h3>Register</h3>
             <button onClick={signUp}>Sign Up</button>
+
         </>
     );
 };

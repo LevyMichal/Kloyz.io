@@ -10,7 +10,6 @@ export default function SignUpPage() {
     const navigate = useNavigate();
     const instanceAxios = useAxios()
 
-
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
