@@ -1,13 +1,9 @@
-import axios from 'axios';
+import axiosInstance from './axiosInstance';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const useAxios = () => {
     const navigate = useNavigate();
-
-    const axiosInstance = axios.create({
-        baseURL: 'http://our-api-url', // Replace with our API's base URL
-    });
 
     useEffect(() => {
         const token = localStorage.getItem('jwt');

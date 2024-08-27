@@ -6,6 +6,7 @@ export default function SignUpPage() {
     const [password, setPassword] = useState('');
 
     // const navigate = useNavigate();
+    const instanceAxios = useAxios()
 
     const handleSignUp = async (e) => {
         e.preventDefault();

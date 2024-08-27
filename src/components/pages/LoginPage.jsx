@@ -37,7 +37,6 @@ export default function LoginPage() {
             const { success } = successMockData;
 
             if (success) {
-                console.log('Login success');
                 //real jwt from DB
                 // localStorage.setItem('jwt', token);
 
@@ -57,38 +56,30 @@ export default function LoginPage() {
         <>
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
-                <div>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
-                        required
-                    />
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        required
-                    />
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    required
+                />
+                <br />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    required
+                />
+                <br />
+                <button type="submit">Login</button>
+
             </form>
+            <button>forgot password</button>
+            {/* TODO: wait for ui design */}
 
-            <div>
-                <button>forgot password</button>
-                {/* TODO: wait for ui design */}
-            </div>
-
-            <div>
-                <h3>Already have an account?</h3>
-                <Link to={'/signUp'}>Sign Up</Link>
-            </div>
+            <h3>Already have an account?</h3>
+            <Link to={signUp}>Sign Up</Link>
 
         </>
     );

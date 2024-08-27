@@ -3,11 +3,11 @@ import useAxios from '../utils/useAxios';
 
 
 export default function HomePage() {
-    const instanceAxios = useAxios()
+    const axios = useAxios()
 
 
     const checkAxios = async () => {
-        const response = await instanceAxios.get('/protect');
+        const response = await axios.get('/protect');
         console.log(response);
 
 
