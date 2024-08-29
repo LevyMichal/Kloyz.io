@@ -1,11 +1,11 @@
 import './App.css';
-import AppRoutes from './components/AppRoutes';
+import PublicRoutes from './routes/publicRoutes';
 
 function App() {
 
   return (
     <>
-      <AppRoutes />
+      <PublicRoutes />
     </>
   );
 }

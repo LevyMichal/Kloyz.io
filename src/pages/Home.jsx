@@ -2,7 +2,7 @@ import React from 'react'
 import useAxios from '../utils/useAxios';
 
 
-export default function HomePage() {
+export default function Home() {
     const axios = useAxios()
 
 
