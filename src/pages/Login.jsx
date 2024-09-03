@@ -1,48 +1,47 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../utils/axiosInstance';
+import useAxios from '../hooks/useAxios';
+import { useDispatch } from 'react-redux';
 
-//mockData
-const successMockData = {
-    success: true,
-    message: "user logged successfully",
-    data: {
-        token: 'hjkdvkjdvj678987654321'
-    },
+import users from "../usersFile"
 
-}
-const failedMockData = {
-    success: false,
-    message: " blablabla",
-    error: {
-        errorMessage: "ERROR"
-    }
-}
-
-export default function login() {
+export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const axiosInstance = useAxios();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
 
-            //real data from DB
+            //real data from DB:
             // const response = await axiosInstance.post('/login', { email, password });
-            // const { token, success } = response.data;
+            // TODO: check the structure
+            // const {success,data} = response.data;
 
-            //data from mockData
-            const { success } = successMockData;
+            // if (success) {
+            // console.log('Login success');
+            // const { token, user } = data;
+            // localStorage.setItem('jwt', token);
+            // dispatch({type: "IS_LOGGED",payload: token});
+            // dispatch({type: "SET_CURRENT_USER",payload: user});
+
+
+            //data from users file
+            const user = users.find(user => user.data.json.email === email && user.data.json.password === password)
+            const { success } = user;
 
             if (success) {
                 console.log('Login success');
-                //real jwt from DB
-                // localStorage.setItem('jwt', token);
+                dispatch({ type: "IS_LOGGED", payload: token });
+                dispatch({ type: "SET_CURRENT_USER", payload: user });
+                localStorage.setItem('jwt', user.data.json.token);
 
-                //jwt from mockData
-                localStorage.setItem('jwt', successMockData.data.token);
+                ////////////////////////////////
 
                 navigate('/');
             } else {
@@ -81,15 +80,17 @@ export default function login() {
             </form>
 
             <div>
-                <button>forgot password</button>
+                <Link to={'/forgot-password'}>forgot password?</Link>
                 {/* TODO: wait for ui design */}
             </div>
 
             <div>
                 <h3>Already have an account?</h3>
-                <Link to={'/signUp'}>Sign Up</Link>
+                <Link to={'/register'}>Sign Up</Link>
             </div>
 
         </>
     );
 };
+
+

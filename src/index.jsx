@@ -3,9 +3,17 @@ import App from './App.jsx'
 import './index.css'
 
 import { BrowserRouter } from 'react-router-dom'
+import { legacy_createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import rootReducer from './reducers/rootReducer.jsx'
+const appStore = legacy_createStore(rootReducer)
+
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <App />
+    <Provider store={appStore}>
+      <App />
+    </Provider>
   </BrowserRouter>,
 )

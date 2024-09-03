@@ -1,11 +1,13 @@
 import './App.css';
-import PublicRoutes from './routes/publicRoutes';
+import Login from './pages/Login';
+import AppRouter from './routes/appRouter';
 
 function App() {
 
   return (
     <>
-      <PublicRoutes />
+      <AppRouter />
+      {/* <Login /> */}
     </>
   );
 }
