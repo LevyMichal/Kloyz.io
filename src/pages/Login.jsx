@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAxios from '../hooks/useAxios';
 import { useDispatch } from 'react-redux';
 
-import users from "../usersFile"
+import users from "../utils/usersFile"
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -26,7 +26,6 @@ export default function Login() {
             // if (success) {
             // console.log('Login success');
             // const { token, user } = data;
-            // localStorage.setItem('jwt', token);
             // dispatch({type: "IS_LOGGED",payload: token});
             // dispatch({type: "SET_CURRENT_USER",payload: user});
 
@@ -37,11 +36,10 @@ export default function Login() {
 
             if (success) {
                 console.log('Login success');
-                dispatch({ type: "IS_LOGGED", payload: token });
-                dispatch({ type: "SET_CURRENT_USER", payload: user });
-                localStorage.setItem('jwt', user.data.json.token);
-
-                ////////////////////////////////
+                const { json } = user.data
+                dispatch({ type: "IS_LOGGED", payload: json.token });
+                dispatch({ type: "SET_CURRENT_USER", payload: json });
+                // sessionStorage.setItem('jwt', json.token);
 
                 navigate('/');
             } else {

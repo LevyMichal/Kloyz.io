@@ -1,13 +1,14 @@
 import './App.css';
-import Login from './pages/Login';
-import AppRouter from './routes/appRouter';
+import AppRouter from "./routes/appRouter.jsx"
+
+
+// import Login from './pages/Login';
 
 function App() {
 
   return (
     <>
       <AppRouter />
-      {/* <Login /> */}
     </>
   );
 }

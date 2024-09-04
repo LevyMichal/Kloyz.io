@@ -1,4 +1,4 @@
-export const users = [
+const users = [
     {
         success: true,
         data: {
@@ -42,3 +42,5 @@ export const users = [
         message: "user logged successfully"
     },
 ]
+
+export default users;

@@ -7,13 +7,17 @@ const useAuth = (requiredRoles = []) => {
     const navigate = useNavigate();
 
     const isLogged = useSelector((store) => store.auth.isLogged);
+    console.log({ "isLogged": isLogged })
+
     const userRole = useSelector((store) => store.user.currentUser?.role);
+
 
     useEffect(() => {
         if (!isLogged) {
             navigate("/login"); // Redirect to login if not logged in
         } else if (requiredRoles.length > 0 && !requiredRoles.includes(userRole)) {
-            navigate("/"); // Redirect to home if role is not sufficient
+            alert('no permissions!');
+            navigate('/'); // Redirect to home if role is not sufficient
         } else {
             setIsAuthorized(true);
         }
