@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -47,3 +47,13 @@
 div {
   padding: 15px;
 }
+
+
+.bg-sky-500 {
+  background-color: #0ea5e9;
+}
+
+.hover\:bg-sky-700:hover {
+  background-color: #0369a1;
+} */
+
