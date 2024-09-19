@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table, Spin, Empty } from "antd";
 import TableColumns from "./TableColumns";
 import InfiniteScroll from "react-infinite-scroll-component";
 import organizationsData from "../../../mockData/orgsData"; // Mock data
 
 import useAxios from "../../../hooks/useAxios";
+import { useNavigate } from "react-router-dom";
 
 const tableSize = 10;
 
@@ -14,8 +15,11 @@ export default function OrganizationsTable() {
     const [hasMore, setHasMore] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const axiosInstance = useAxios();
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+
     const userRole = useSelector((store) => store.user.currentUser?.role);
-    const axiosInstance = useAxios(); // Your Axios hook for making API requests
 
     useEffect(() => {
         if (userRole === "SUPERADMIN") {
@@ -51,6 +55,13 @@ export default function OrganizationsTable() {
         }
     };
 
+    const handleRowClick = (record) => {
+        dispatch({ type: "SET_ORG", payload: record }); // Dispatch the organization data
+        navigate(`/org/${record.id}`); // Navigate to the organization page
+    };
+
+
+
     return (
         <>
             <div id="scrollableDiv" style={{ height: 600, overflow: "auto" }}>
@@ -67,6 +78,9 @@ export default function OrganizationsTable() {
                         dataSource={organizations}
                         pagination={false}
                         rowKey="id"
+                        onRow={(record) => ({
+                            onClick: () => handleRowClick(record),
+                        })}
                         locale={{
                             emptyText: <Empty description="No organizations available" />,
                         }}

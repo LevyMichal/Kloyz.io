@@ -6,11 +6,6 @@ const TableColumns = () => {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            render: (text, record) => (
-                <Link to={`/org/${record.id}`} className="font-semibold hover:underline">
-                    {text}
-                </Link>
-            ),
         },
         {
             title: 'Users',
