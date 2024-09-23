@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
         try {
 
-            //fetch real data from DB:
+            //fetch real data:
             // const response = await axiosInstance.post('/login', { email, password });
             // TODO: check the structure
             // const {success,data} = response.data;
@@ -33,7 +33,7 @@ export default function Login() {
             // dispatch({type: "IS_LOGGED",payload: token});
             // dispatch({type: "SET_CURRENT_USER",payload: user});
 
-            //fetch mock data from users file:
+            //fetch mock data:
             const user = users.find(user => user.data.json.email === email && user.data.json.password === password)
             const { success } = user;
             //dispatch mock data to userReducer:
@@ -54,54 +54,51 @@ export default function Login() {
         }
     };
 
+
     return (
-        <>
-            <div className="flex flex-col lg:flex-row min-h-screen bg-white ">
-
+        <div className="flex flex-col lg:flex-row min-h-screen">
+            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-neutral-100">
                 <LeftSideLoginPage />
-                <div className="lg:w-1/2 xl:w-5/12 p-60 sm:p-40 content-center">
-                    <div className="flex justify-left mb-6 max-w-xl m-auto" >
-                        <p className='text-2xl font-semibold' > Welcome back!</p>
-                    </div>
-                    <form onSubmit={handleLogin} className="max-w-xl m-auto">
+            </div>
 
-                        <div className="mb-4 relative">
+            {/* Right side with form */}
+            <div className="flex-1 flex justify-center items-center px-10 sm:px-10 md:px-40 lg:px-40 xl:px-48 py-8">
+                <div className="w-full max-w-lg md:max-w-xl" style={{ maxWidth: '100vw', minWidth: '300px' }}>
+                    <div className="flex justify-left mb-6">
+                        <p className="text-2xl font-semibold">Welcome back!</p>
+                    </div>
+                    <form onSubmit={handleLogin} className="space-y-6">
+                        <div>
                             <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
-
-                        <div className="mb-2 relative">
+                        <div>
                             <PasswordInput value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
-
-                        <div className="flex justify-end pr-1 mb-2">
-                            <Link to="/forgot-password" className="text-blue-600 font-semibold hover:underline">
+                        <div className="flex justify-end pr-1">
+                            <Link to="/forgot-password" className="text-violet-600 font-light hover:underline">
                                 Forgot password?
                             </Link>
                         </div>
-                        <div className="mb-6">
+                        <div>
                             <SubmitButton text="Login" />
                         </div>
                     </form>
-
-                    <div className="flex justify-center pr-1 mb-6">
-                        <p className='text-gray-400'> - or -</p>
+                    <div className="flex justify-center">
+                        <p className="text-neutral-400 my-6">- or -</p>
                     </div>
-
                     <div className="flex justify-center items-center">
-                        <button className="flex justify-center items-center text-black font-bold border rounded-lg border-inherit hover:bg-gray-100 p-3 space-x-2">
-                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google logo" className="h-6 w-6" />
+                        <button className="flex items-center text-black font-bold border rounded-lg hover:bg-neutral-100 p-3 space-x-2">
+                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google logo" className="h-5 w-5" />
                             <span>Login with Google</span>
                         </button>
                     </div>
-
-                    <div className='flex justify-center m-8 '  >
+                    <div className="flex justify-center mt-8">
                         <p className="text-m">
-                            Don’t you have an account?  <Link to={'/register'} className="text-blue-600 hover:underline font-semibold">Sign Up</Link>
+                            Don’t have an account? <Link to={'/register'} className="text-violet-600 hover:underline font-semibold">Sign Up</Link>
                         </p>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
-};
-
+}

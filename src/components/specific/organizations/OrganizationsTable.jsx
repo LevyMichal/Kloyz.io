@@ -56,28 +56,32 @@ export default function OrganizationsTable() {
     };
 
     const handleRowClick = (record) => {
-        dispatch({ type: "SET_ORG", payload: record }); // Dispatch the organization data
-        navigate(`/org/${record.id}`); // Navigate to the organization page
+        dispatch({ type: "SET_ORG", payload: record });
+        navigate(`/org/${record.id}`);
     };
 
 
 
     return (
         <>
-            <div id="scrollableDiv" style={{ height: 600, overflow: "auto" }}>
-                <p className='text-xl font-bold' > Organizations</p>
+            <p className='text-xl font-bold' > Organizations</p>
+            <div id="scrollableDiv" style={{ height: 600, overflow: "auto" }} >
                 <InfiniteScroll
                     dataLength={organizations.length}
                     next={loadMoreData}
                     hasMore={hasMore}
                     loader={<p>Loading...</p>}
                     scrollableTarget="scrollableDiv"
+                    style={{ overflow: "unset" }}
                 >
                     <Table
                         columns={TableColumns()}
                         dataSource={organizations}
                         pagination={false}
                         rowKey="id"
+                        scroll={"true"}
+                        sticky
+                        style={{ cursor: "pointer", }}
                         onRow={(record) => ({
                             onClick: () => handleRowClick(record),
                         })}

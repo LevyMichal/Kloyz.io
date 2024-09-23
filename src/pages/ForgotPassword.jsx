@@ -12,32 +12,33 @@ export default function ForgotPassword() {
     }
 
     return (
-        <>
-            <div className="flex flex-col lg:flex-row min-h-screen bg-white ">
-
+        <div className="flex flex-col lg:flex-row min-h-screen ">
+            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-neutral-100">
                 <LeftSideLoginPage />
-                <div className="lg:w-1/2 xl:w-5/12 p-60 sm:p-40 content-center">
-                    <div className="flex justify-left mb-6 max-w-xl m-auto" >
-                        <p className='text-2xl font-semibold' >Forgot Password</p>
+            </div>
+
+            {/* Right side with form */}
+            <div className="flex-1 flex justify-center items-center px-10 sm:px-10 md:px-40 lg:px-40 xl:px-48 py-8">
+                <div className="w-full max-w-lg md:max-w-xl" style={{ maxWidth: '100vw', minWidth: '300px' }}>
+                    <div className="flex justify-left">
+                        <p className="text-2xl font-semibold">Forgot Password</p>
                     </div>
-
-                    <div className="flex justify-left mb-6 max-w-xl m-auto" >
-                        <p className='text-sm font-light' >A new password will be send to your email</p>
+                    <div className="flex justify-left" >
+                        <p className='text-sm font-light ' >A new password will be send to your email</p>
                     </div>
+                    <form onSubmit={handleForgotPwd} className="space-y-6">
 
-                    <form onSubmit={handleForgotPwd} className="max-w-xl m-auto">
-
-                        <div className="mb-4 relative">
+                        <div>
                             <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
 
-                        <div className="mb-6">
+                        <div>
                             <SubmitButton text="Send" />
                         </div>
                     </form>
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
