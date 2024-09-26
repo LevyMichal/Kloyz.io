@@ -11,6 +11,7 @@ export default {
       'lg': '1440px',
       'xl': '1536px',
     },
+
     extend: {},
   },
   plugins: [],
