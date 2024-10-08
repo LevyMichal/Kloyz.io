@@ -6,7 +6,7 @@ import { UserRoute, AdminRoute, SuperAdminRoute } from "./rolesRoutes";
 import Home from "../pages/Home";
 import Admin from "../pages/Admin";
 import SuperAdmin from "../pages/SuperAdmin";
-import OrgDetails from "../pages/OrgDetails.jsx";
+import OrganizationInfo from "../pages/OrganizationInfo.jsx";
 
 const AppRouter = () => {
     const routes = [
@@ -39,7 +39,7 @@ const AppRouter = () => {
             path: "/org/:id",
             element: (
                 <SuperAdminRoute>
-                    <OrgDetails />
+                    <OrganizationInfo />
                 </SuperAdminRoute>
 
             ),

@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import InfiniteScroll from "react-infinite-scroll-component";
 import organizationsData from "../../../mockData/orgsData"; // Mock data
 
 import useAxios from "../../../hooks/useAxios";
 import { useNavigate } from "react-router-dom";
 import Table from "../../common/Table";
 import orgColumns from "./OrgTableColumns";
+import FilterSearch from "../../common/FilterSearch";
 
 const tableSize = 10;
 
 export default function OrganizationsTable() {
     const [organizations, setOrganizations] = useState([]);
+    const [filteredOrganizations, setFilteredOrganizations] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -55,53 +56,35 @@ export default function OrganizationsTable() {
         }
     };
 
-    const handleRowClick = (record) => {
-        dispatch({ type: "SET_ORG", payload: record });
-        navigate(`/org/${record.id}`);
+    const handleRowClick = (org) => {
+        dispatch({ type: "SET_ORG", payload: org });
+        navigate(`/org/${org.id}`);
     };
 
-    const addNewOrg = () => {
-        //TODO: handle new organization
+    const handleFilter = (e) => {
+        const filteredOrgs = organizations.filter((org) => org.name.toLowerCase().includes(e.toLowerCase()));
+        setFilteredOrganizations(filteredOrgs);
     };
 
     return (
         <div>
-            <div className="flex flex-row items-center">
+            <div className="flex flex-row  items-center justify-center mb-4">
                 <div className="flex-grow">
                     <p className="text-xl font-bold">All Organizations</p>
                 </div>
-                <div className="relative mb-8 pr-3">
-                    <input
-                        type="text"
-                        placeholder="Search Dashboard"
-                        className="pl-10 text-neutral-100 text-sm bg-neutral-50 hover:bg-neutral-200 p-3 rounded-full"
-                    />
-                </div>
-                <button
-                    className="text-neutral-100 text-sm bg-violet-500 p-3 mb-8 rounded-full hover:bg-violet-700"
-                    onClick={addNewOrg}
-                >+ New Organization
-                </button>
+                <FilterSearch onFilter={handleFilter} />
             </div>
-            <div className="border-2 border-neutral-100 rounded-xl p-8">
-                <div
-                    id="scrollableDiv"
-                    style={{ height: '550px', overflowY: 'auto', scrollbarWidth: "none" }}
-                >
-                    <InfiniteScroll
-                        dataLength={organizations.length}
-                        next={loadMoreData}
-                        hasMore={hasMore}
-                        loader={<p>Loading...</p>}
-                        scrollableTarget="scrollableDiv"
-                    >
-                        <Table
-                            columns={orgColumns}
-                            data={organizations}
-                            onRowClick={handleRowClick}
-                        />
-                    </InfiniteScroll>
-                </div>
+
+            <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
+
+                <Table
+                    columns={orgColumns}
+                    data={filteredOrganizations.length ? filteredOrganizations : organizations}
+                    onRowClick={handleRowClick}
+                    loadMoreData={loadMoreData}
+                    hasMore={hasMore}
+                />
+
             </div>
         </div>
     );

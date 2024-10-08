@@ -20,10 +20,10 @@ export default function ForgotPassword() {
             {/* Right side with form */}
             <div className="flex-1 flex justify-center items-center px-10 sm:px-10 md:px-40 lg:px-40 xl:px-48 py-8">
                 <div className="w-full max-w-lg md:max-w-xl" style={{ maxWidth: '100vw', minWidth: '300px' }}>
-                    <div className="flex justify-left">
+                    <div className="flex justify-left mb-6">
                         <p className="text-2xl font-semibold">Forgot Password</p>
                     </div>
-                    <div className="flex justify-left" >
+                    <div className="flex justify-left mb-4" >
                         <p className='text-sm font-light ' >A new password will be send to your email</p>
                     </div>
                     <form onSubmit={handleForgotPwd} className="space-y-6">

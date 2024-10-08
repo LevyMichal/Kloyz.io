@@ -4,6 +4,7 @@ const users = [
         data: {
             json: {
                 token: "123462656asdfghhdhd",
+                name: "John Smith",
                 email: "user1@user1.com",
                 password: "user1",
                 role: "SUPERADMIN",
@@ -18,6 +19,7 @@ const users = [
         data: {
             json: {
                 token: "987632455ncbcvgtfnafv",
+                name: "Michael Dim",
                 email: "user2@user2.com",
                 password: "user2",
                 role: "ADMIN",
@@ -32,6 +34,7 @@ const users = [
         data: {
             json: {
                 token: "hljkhghlkcjg564745965",
+                name: "Ron Task",
                 email: "user3@user3.com",
                 password: "user3",
                 role: "USER",
