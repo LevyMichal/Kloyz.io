@@ -5,9 +5,8 @@ import { useParams } from 'react-router-dom'
 import Layout from '../layouts/Layout'
 
 
-export default function OrganizationInfo() {
+export default function Organization() {
     const org = useSelector((store) => store.org?.org)
-    // const params = useParams()
     return (
         <div>
             <Layout>

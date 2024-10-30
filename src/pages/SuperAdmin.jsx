@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import OrganizationsTable from '../components/specific/organizations/OrganizationsTable'
 import Layout from '../layouts/Layout'
+import AddOrgPopup from '../components/specific/organizations/AddOrgPopup'
 
 
 export default function SuperAdmin() {
-    const [isOrgs, setIsOrgs] = useState(false)
+    const [showOrgTable, setShowOrgTable] = useState(false)
 
     return (
         <div>
-            <Layout>
+            <Layout
+                // openAddOrgPopup={openAddOrgPopup}
+                showOrgTable={showOrgTable}
+                setShowOrgTable={setShowOrgTable}
+            >
                 <div>
-                    <OrganizationsTable />
+                    {/* Organizations Table */}
+                    {showOrgTable && <OrganizationsTable showOrgTable={showOrgTable} setShowOrgTable={setShowOrgTable} />}
                 </div>
             </Layout>
         </div>

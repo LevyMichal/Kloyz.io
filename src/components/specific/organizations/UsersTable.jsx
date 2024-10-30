@@ -8,6 +8,7 @@ import Table from "../../common/Table";
 import usersColumns from "./UsersTableColumns";
 import FilterSearch from "../../common/FilterSearch";
 import Button from "../../common/Button";
+import AddUserPopup from "./AddUserPopup";
 
 const tableSize = 10;
 
@@ -16,6 +17,12 @@ export default function UsersTable({ org }) {
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const [showAddUserPopup, setShowAddUserPopup] = useState(false)
+
+
+    const openAddUserPopup = () => setShowAddUserPopup(true)
+    const closeAddUserPopup = () => setShowAddUserPopup(false)
 
     const axiosInstance = useAxios();
     const dispatch = useDispatch()
@@ -52,20 +59,20 @@ export default function UsersTable({ org }) {
         setFilteredUsers(filteredUsers);
     };
 
-    const handleNewUser = () => {
-        // TODO: handleNewUser
-    }
+    // const handleNewUser = () => {
+    //     // TODO: handleNewUser
+    // }
 
     return (
         <div>
             <div className="flex flex-row items-center justify-center mb-4">
                 <div className="flex">
                     <p className="text-xl pt-1 font-bold mr-4">All Users</p>
-                    <Button text={"+ New User"} onClick={handleNewUser} />
+                    <Button text={"+ New User"} onClick={openAddUserPopup} />
 
                 </div>
                 <div className="flex-1 ">
-                    <p className="text-center -ml-40 text-2xl font-bold text-violet-500">{org.name}</p>
+                    <p className="text-center -ml-32 text-2xl font-bold text-violet-500">{org.name}</p>
                 </div>
                 <FilterSearch onFilter={handleFilter} />
             </div>
@@ -81,6 +88,9 @@ export default function UsersTable({ org }) {
                 />
 
             </div>
+
+            <AddUserPopup isVisible={showAddUserPopup} onClose={closeAddUserPopup} popupType={"from organization page"} orgName={org.name} />
+
         </div>
     );
 }
