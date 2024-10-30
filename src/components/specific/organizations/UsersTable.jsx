@@ -14,21 +14,23 @@ const tableSize = 10;
 
 export default function UsersTable({ org }) {
     const [users, setUsers] = useState([]);
-    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [hasMore, setHasMore] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const [showAddUserPopup, setShowAddUserPopup] = useState(false)
 
+    const userRole = useSelector((store) => store.user.currentUser?.role);
 
-    const openAddUserPopup = () => setShowAddUserPopup(true)
-    const closeAddUserPopup = () => setShowAddUserPopup(false)
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const axiosInstance = useAxios();
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
-    const userRole = useSelector((store) => store.user.currentUser?.role);
+    const openAddUserPopup = () => setShowAddUserPopup(true)
+    const closeAddUserPopup = () => setShowAddUserPopup(false)
 
     useEffect(() => {
         if (userRole === "SUPERADMIN") {
@@ -54,15 +56,6 @@ export default function UsersTable({ org }) {
         // TODO: handleRowClick
     };
 
-    const handleFilter = (e) => {
-        const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(e.toLowerCase()));
-        setFilteredUsers(filteredUsers);
-    };
-
-    // const handleNewUser = () => {
-    //     // TODO: handleNewUser
-    // }
-
     return (
         <div>
             <div className="flex flex-row items-center justify-center mb-4">
@@ -74,14 +67,17 @@ export default function UsersTable({ org }) {
                 <div className="flex-1 ">
                     <p className="text-center -ml-32 text-2xl font-bold text-violet-500">{org.name}</p>
                 </div>
-                <FilterSearch onFilter={handleFilter} />
+                <FilterSearch
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
             </div>
 
             <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
 
                 <Table
                     columns={usersColumns}
-                    data={filteredUsers.length ? filteredUsers : users}
+                    data={filteredUsers.length > 0 && filteredUsers}
                     onRowClick={handleRowClick}
                     loadMoreData={loadMoreData}
                     hasMore={hasMore}

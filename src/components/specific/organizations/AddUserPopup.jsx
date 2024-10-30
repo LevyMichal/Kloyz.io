@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "../../common/Input";
 import organizationsData from "../../../mockData/orgsData";
 
-export default function AddUserPopup({ isVisible, onClose, popupType, orgName, prevStep, onClick }) {
+export default function AddUserPopup({ isVisible, onClose, popupType, orgName, newOrg, prevStep }) {
     if (!isVisible) return null;
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -101,6 +101,10 @@ export default function AddUserPopup({ isVisible, onClose, popupType, orgName, p
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // newOrg&&
+        //TODO: Send new Org to backend or handle further as needed
+
         //TODO: Send newUsers to backend or handle further as needed
     };
 

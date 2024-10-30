@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function FilterSearch({ onFilter }) {
+export default function FilterSearch({ value, onChange }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isFilter, setIsFilter] = useState(false);
 
@@ -33,9 +33,10 @@ export default function FilterSearch({ onFilter }) {
                 {isFilter || isHovered ? (
                     <input
                         type="text"
+                        value={value}
                         placeholder="Filter By Name"
-                        onChange={(e) => onFilter(e.target.value)}
-                        className="absolute top-0 right-full w-50 mr-1 p-2 pl-4 text-sm bg-neutral-100  hover:bg-neutral-200 rounded-full focus:outline-none"
+                        onChange={onChange}
+                        className="absolute top-0 right-full w-50  p-2 pl-4 text-sm bg-neutral-100  hover:bg-neutral-200 rounded-full focus:ring-0 focus:border-violet-500"
                     />
                 ) : null}
             </div>

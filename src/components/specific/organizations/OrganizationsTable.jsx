@@ -12,7 +12,7 @@ const tableSize = 10;
 
 export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
     const [organizations, setOrganizations] = useState([]);
-    const [filteredOrganizations, setFilteredOrganizations] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [hasMore, setHasMore] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -21,6 +21,10 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
     const navigate = useNavigate();
 
     const userRole = useSelector((store) => store.user.currentUser?.role);
+
+    const filteredOrganizations = organizations.filter(org =>
+        org.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     useEffect(() => {
         if (userRole === "SUPERADMIN") {
@@ -62,10 +66,6 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
         navigate(`/org/${org.id}`);
     };
 
-    const handleFilter = (e) => {
-        const filteredOrgs = organizations.filter((org) => org.name.toLowerCase().includes(e.toLowerCase()));
-        setFilteredOrganizations(filteredOrgs);
-    };
 
     return (
         <div>
@@ -73,14 +73,17 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
                 <div className="flex-grow">
                     <p className="text-xl font-bold">All Organizations</p>
                 </div>
-                <FilterSearch onFilter={handleFilter} />
+                <FilterSearch
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
             </div>
 
             <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
 
                 <Table
                     columns={orgColumns}
-                    data={filteredOrganizations.length ? filteredOrganizations : organizations}
+                    data={filteredOrganizations.length > 0 && filteredOrganizations}
                     onRowClick={handleRowClick}
                     loadMoreData={loadMoreData}
                     hasMore={hasMore}

@@ -119,6 +119,7 @@ export default function AddOrgPopup({ isVisible, onClose }) {
                     isVisible={true}
                     popupType={"add org second step"}
                     orgName={newOrg.name}
+                    newOrg={newOrg}
                     prevStep={() => setStep(1)}
                     onClose={onClose} />
             }
