@@ -71,8 +71,11 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
         <div>
             <div className="flex flex-row  items-center justify-center mb-4">
                 <div className="flex-grow">
-                    <p className="text-xl font-bold">All Organizations</p>
+                    <p className="text-xl font-bold">
+                        All Organizations
+                    </p>
                 </div>
+
                 <FilterSearch
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -80,7 +83,6 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
             </div>
 
             <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
-
                 <Table
                     columns={orgColumns}
                     data={filteredOrganizations.length > 0 && filteredOrganizations}
@@ -88,7 +90,6 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
                     loadMoreData={loadMoreData}
                     hasMore={hasMore}
                 />
-
             </div>
         </div>
     );

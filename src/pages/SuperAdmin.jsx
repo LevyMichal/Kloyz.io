@@ -16,7 +16,12 @@ export default function SuperAdmin() {
             >
                 <div>
                     {/* Organizations Table */}
-                    {showOrgTable && <OrganizationsTable showOrgTable={showOrgTable} setShowOrgTable={setShowOrgTable} />}
+                    {showOrgTable &&
+                        <OrganizationsTable
+                            showOrgTable={showOrgTable}
+                            setShowOrgTable={setShowOrgTable}
+                        />
+                    }
                 </div>
             </Layout>
         </div>

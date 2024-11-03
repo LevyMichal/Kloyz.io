@@ -21,22 +21,28 @@ export default function ForgotPassword() {
             <div className="flex-1 flex justify-center items-center px-10 sm:px-10 md:px-40 lg:px-40 xl:px-48 py-8">
                 <div className="w-full max-w-lg md:max-w-xl" style={{ maxWidth: '100vw', minWidth: '300px' }}>
                     <div className="flex justify-left mb-6">
-                        <p className="text-2xl font-semibold">Forgot Password</p>
+                        <p className="text-2xl font-semibold">
+                            Forgot Password
+                        </p>
                     </div>
                     <div className="flex justify-left mb-4" >
-                        <p className='text-sm font-light ' >A new password will be send to your email</p>
+                        <p className='text-sm font-light ' >
+                            A new password will be send to your email
+                        </p>
                     </div>
-                    <form onSubmit={handleForgotPwd} className="space-y-6">
+                    <form
+                        onSubmit={handleForgotPwd}
+                        className="space-y-6">
 
                         <div>
-                            <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <EmailInput
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
                         </div>
-
                         <div>
                             <SubmitButton text="Send" />
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

@@ -9,14 +9,18 @@ export default function Home() {
             <Layout>
                 <div className='p-24'>
                     <div className="flex justify-center mb-6 max-w-xl m-auto" >
-                        <p className='text-2xl font-semibold' >Welcome to Home Page</p>
+                        <p className='text-2xl font-semibold' >
+                            Welcome to Home Page
+                        </p>
                     </div>
 
                     {/* <button onClick={checkAxios}>check the header of req</button> */}
 
                     <div className="flex flex-col justify-center mb-6 max-w-xl m-auto">
                         <div  >
-                            <p className='text-lg font-bold' >check roles:</p>
+                            <p className='text-lg font-bold' >
+                                check roles:
+                            </p>
                         </div>
                         <div>
                             <Link to={'/superadmin'} className="text-blue-600 font-semibold hover:underline">Super Admin</Link>

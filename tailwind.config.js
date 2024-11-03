@@ -13,6 +13,7 @@ export default {
       'xl': '1536px',
     },
 
+
     extend: {},
   },
   plugins: [require('flowbite/plugin')],

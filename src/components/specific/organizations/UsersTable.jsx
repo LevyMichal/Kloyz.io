@@ -60,12 +60,19 @@ export default function UsersTable({ org }) {
         <div>
             <div className="flex flex-row items-center justify-center mb-4">
                 <div className="flex">
-                    <p className="text-xl pt-1 font-bold mr-4">All Users</p>
-                    <Button text={"+ New User"} onClick={openAddUserPopup} />
+                    <p className="text-xl pt-1 font-bold mr-4">
+                        All Users
+                    </p>
+                    <Button
+                        text={"+ New User"}
+                        onClick={openAddUserPopup}
+                    />
 
                 </div>
                 <div className="flex-1 ">
-                    <p className="text-center -ml-32 text-2xl font-bold text-violet-500">{org.name}</p>
+                    <p className="text-center -ml-32 text-2xl font-bold text-violet-500">
+                        {org.name}
+                    </p>
                 </div>
                 <FilterSearch
                     value={searchTerm}
@@ -74,7 +81,6 @@ export default function UsersTable({ org }) {
             </div>
 
             <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
-
                 <Table
                     columns={usersColumns}
                     data={filteredUsers.length > 0 && filteredUsers}
@@ -82,11 +88,13 @@ export default function UsersTable({ org }) {
                     loadMoreData={loadMoreData}
                     hasMore={hasMore}
                 />
-
             </div>
 
-            <AddUserPopup isVisible={showAddUserPopup} onClose={closeAddUserPopup} popupType={"from organization page"} orgName={org.name} />
-
+            <AddUserPopup
+                isVisible={showAddUserPopup}
+                onClose={closeAddUserPopup}
+                popupType={"from organization page"}
+                orgName={org.name} />
         </div>
     );
 }

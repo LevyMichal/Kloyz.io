@@ -63,19 +63,34 @@ export default function Login() {
 
             {/* Right side with form */}
             <div className="flex-1 flex justify-center items-center px-10 sm:px-10 md:px-40 lg:px-40 xl:px-48 py-8">
-                <div className="w-full max-w-lg md:max-w-xl" style={{ maxWidth: '100vw', minWidth: '300px' }}>
+                <div className="w-full max-w-lg md:max-w-xl"
+                    style={{ maxWidth: '100vw', minWidth: '300px' }}
+                >
                     <div className="flex justify-left mb-6">
-                        <p className="text-2xl font-semibold">Welcome back!</p>
+                        <p className="text-2xl font-semibold"
+                        >Welcome back!
+                        </p>
                     </div>
-                    <form onSubmit={handleLogin} className="space-y-6">
+                    <form
+                        onSubmit={handleLogin}
+                        className="space-y-6">
                         <div>
-                            <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <EmailInput
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </div>
                         <div>
-                            <PasswordInput value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <PasswordInput
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                         </div>
                         <div className="flex justify-end pr-1">
-                            <Link to="/forgot-password" className="text-violet-600 font-light hover:underline">
+                            <Link
+                                to="/forgot-password"
+                                className="text-violet-600 font-light hover:underline"
+                            >
                                 Forgot password?
                             </Link>
                         </div>
@@ -84,17 +99,31 @@ export default function Login() {
                         </div>
                     </form>
                     <div className="flex justify-center">
-                        <p className="text-neutral-400 my-6">- or -</p>
+                        <p className="text-neutral-400 my-6">
+                            - or -
+                        </p>
                     </div>
                     <div className="flex justify-center items-center">
-                        <button className="flex items-center text-black font-bold border rounded-lg hover:bg-neutral-100 p-3 space-x-2">
-                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google logo" className="h-5 w-5" />
-                            <span>Login with Google</span>
+                        <button className="flex items-center text-black font-bold border hover:bg-neutral-100 p-3 space-x-2">
+                            <img
+                                src="https://img.icons8.com/color/48/000000/google-logo.png"
+                                alt="Google logo"
+                                className="h-5 w-5"
+                            />
+                            <span>
+                                Login with Google
+                            </span>
                         </button>
                     </div>
                     <div className="flex justify-center mt-8">
                         <p className="text-m">
-                            Don’t have an account? <Link to={'/register'} className="text-violet-600 hover:underline font-semibold">Sign Up</Link>
+                            Don’t have an account?
+                            <Link
+                                to={'/register'}
+                                className="text-violet-600 hover:underline font-semibold"
+                            >
+                                Sign Up
+                            </Link>
                         </p>
                     </div>
                 </div>

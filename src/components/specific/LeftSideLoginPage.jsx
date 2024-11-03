@@ -14,7 +14,9 @@ export default function LeftSideLoginPage() {
                 <div className='absolute bg-violet-100 h-24 w-60 rounded-2xl right-0 top-1/3'>
                     Signed
                 </div> */}
-            <p className="text-6xl font-bold p-8 rounded-2xl text-white  bg-gradient-to-r from-violet-400 to-violet-600">Kloyz.io</p>
+            <p className="text-6xl font-bold p-8 rounded-2xl text-white  bg-gradient-to-r from-violet-400 to-violet-600">
+                Kloyz.io
+            </p>
             {/* </div> */}
         </div>
     )
