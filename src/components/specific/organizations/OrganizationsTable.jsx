@@ -10,7 +10,7 @@ import FilterSearch from "../../common/FilterSearch";
 
 const tableSize = 10;
 
-export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
+export default function OrganizationsTable() {
     const [organizations, setOrganizations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [hasMore, setHasMore] = useState(true);
@@ -62,7 +62,6 @@ export default function OrganizationsTable({ showOrgTable, setShowOrgTable }) {
 
     const handleRowClick = (org) => {
         dispatch({ type: "SET_ORG", payload: org });
-        setShowOrgTable(!showOrgTable)
         navigate(`/org/${org.id}`);
     };
 

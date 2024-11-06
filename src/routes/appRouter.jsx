@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Admin from "../pages/Admin";
 import SuperAdmin from "../pages/SuperAdmin";
 import Organization from "../pages/Organization.jsx";
+import Organizations from "../pages/Organizations.jsx";
 
 const AppRouter = () => {
     const routes = [
@@ -19,20 +20,29 @@ const AppRouter = () => {
                 </UserRoute>
             ),
         },
+        // {
+        //     path: "/admin",
+        //     element: (
+        //         <AdminRoute>
+        //             <Admin />
+        //         </AdminRoute>
+        //     ),
+        // },
+        // {
+        //     path: "/superadmin",
+        //     element: (
+        //         <SuperAdminRoute>
+        //             <SuperAdmin />
+        //         </SuperAdminRoute>
+        //     ),
+        // },
         {
-            path: "/admin",
-            element: (
-                <AdminRoute>
-                    <Admin />
-                </AdminRoute>
-            ),
-        },
-        {
-            path: "/superadmin",
+            path: "/organizations",
             element: (
                 <SuperAdminRoute>
-                    <SuperAdmin />
+                    <Organizations />
                 </SuperAdminRoute>
+
             ),
         },
         {
