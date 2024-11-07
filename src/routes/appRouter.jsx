@@ -8,6 +8,7 @@ import Admin from "../pages/Admin";
 import SuperAdmin from "../pages/SuperAdmin";
 import Organization from "../pages/Organization.jsx";
 import Organizations from "../pages/Organizations.jsx";
+import NewOrg from "../pages/NewOrg.jsx";
 
 const AppRouter = () => {
     const routes = [
@@ -20,22 +21,14 @@ const AppRouter = () => {
                 </UserRoute>
             ),
         },
-        // {
-        //     path: "/admin",
-        //     element: (
-        //         <AdminRoute>
-        //             <Admin />
-        //         </AdminRoute>
-        //     ),
-        // },
-        // {
-        //     path: "/superadmin",
-        //     element: (
-        //         <SuperAdminRoute>
-        //             <SuperAdmin />
-        //         </SuperAdminRoute>
-        //     ),
-        // },
+        {
+            path: "/*",
+            element: (
+                <SuperAdminRoute>
+                    <Home />
+                </SuperAdminRoute>
+            ),
+        },
         {
             path: "/organizations",
             element: (
@@ -55,13 +48,15 @@ const AppRouter = () => {
             ),
         },
         {
-            path: "/*",
+            path: "/newOrg",
             element: (
                 <SuperAdminRoute>
-                    <Home />
+                    <NewOrg />
                 </SuperAdminRoute>
+
             ),
         },
+
     ];
 
     return useRoutes(routes);
