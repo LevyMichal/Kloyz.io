@@ -4,8 +4,6 @@ import authRouter from "./authRouter.jsx";
 import { UserRoute, AdminRoute, SuperAdminRoute } from "./rolesRoutes";
 
 import Home from "../pages/Home";
-import Admin from "../pages/Admin";
-import SuperAdmin from "../pages/SuperAdmin";
 import Organization from "../pages/Organization.jsx";
 import Organizations from "../pages/Organizations.jsx";
 import NewOrg from "../pages/NewOrg.jsx";

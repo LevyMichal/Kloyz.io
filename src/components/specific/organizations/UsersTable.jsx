@@ -8,7 +8,7 @@ import Table from "../../common/Table";
 import usersColumns from "./UsersTableColumns";
 import FilterSearch from "../../common/FilterSearch";
 import Button from "../../common/Button";
-import AddUserPopup from "./AddUserPopup";
+import NewUserForm from "./NewUserForm";
 
 const tableSize = 10;
 
@@ -90,10 +90,10 @@ export default function UsersTable({ org }) {
                 />
             </div>
 
-            <AddUserPopup
+            <NewUserForm
                 isVisible={showAddUserPopup}
                 onClose={closeAddUserPopup}
-                popupType={"from organization page"}
+                formType={"from organization page"}
                 orgName={org.name} />
         </div>
     );

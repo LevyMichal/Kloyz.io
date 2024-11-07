@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Input from "../../common/Input";
-import AddUserPopup from "./AddUserPopup";
+import AddUserPopup from "./NewUserForm";
 
 export default function AddOrgPopup({ isVisible, onClose }) {
 
@@ -170,7 +170,7 @@ export default function AddOrgPopup({ isVisible, onClose }) {
             {step === 2 &&
                 <AddUserPopup
                     isVisible={true}
-                    popupType={"add org second step"}
+                    formType={"add org second step"}
                     orgName={newOrg.name}
                     newOrg={newOrg}
                     prevStep={() => setStep(1)}

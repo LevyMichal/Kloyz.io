@@ -23,7 +23,8 @@ export default function Layout({ children, showOrgTable, setShowOrgTable }) {
                 {/* Top nav */}
                 <TopNav
                     userRole={role}
-                    userAccreditation={accreditation} />
+                    userAccreditation={accreditation}
+                />
 
                 {/* Children Area */}
                 <div className="mt-[8.3333vh] p-8 overflow-y-auto">

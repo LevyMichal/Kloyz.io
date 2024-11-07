@@ -81,7 +81,7 @@ export default function OrganizationsTable() {
                 />
             </div>
 
-            <div className="border-x-2 border-t-2 border-neutral-100 rounded-t-xl px-8 pt-8" >
+            <div className="border-2 border-neutral-100 rounded-xl p-8" >
                 <Table
                     columns={orgColumns}
                     data={filteredOrganizations.length > 0 && filteredOrganizations}
