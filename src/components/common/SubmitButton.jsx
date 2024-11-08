@@ -3,7 +3,7 @@ export default function SubmitButton({ text, onClick }) {
         <button
             type="submit"
             onClick={onClick}
-            className="w-full bg-violet-600 hover:bg-violet-700 text-white font-light py-3">
+            className="w-full bg-amber-400 hover:bg-amber-500 text-white font-normal py-3">
             {text}
         </button>
     );

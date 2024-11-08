@@ -4,7 +4,7 @@ export default function PasswordInput({ value, onChange }) {
             <div className="absolute bg-white rounded inset-y-0 left-0 p-1.5 m-2 flex items-center pointer-events-none">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-violet-500"
+                    className="h-6 w-6 text-amber-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -21,7 +21,7 @@ export default function PasswordInput({ value, onChange }) {
                 value={value}
                 required
                 onChange={onChange}
-                className="w-full bg-neutral-100 border-gray-300 p-3 pl-14 rounded-lg shadow-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+                className="w-full bg-neutral-100 border-gray-300 p-3 pl-14 rounded-lg shadow-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
             />
         </div>
     );

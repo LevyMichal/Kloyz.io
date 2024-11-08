@@ -19,7 +19,7 @@ export default function Table({ columns, data, onRowClick, loadMoreData, hasMore
                 <div className="table w-full border-collapse absolute">
                     {/* Table Header */}
                     <div className="table-header-group">
-                        <div className="table-row sticky top-0 z-10 bg-neutral-50 border-b-2 border-neutral-200">
+                        <div className="table-row sticky top-0 z-10 bg-slate-50 border-b-2 border-slate-200">
                             <div className="left-0 top-0 bottom-0 w-2">
                             </div>
                             {columns.map((column) => (
@@ -40,10 +40,10 @@ export default function Table({ columns, data, onRowClick, loadMoreData, hasMore
                                     <div
                                         key={item.id}
                                         onClick={() => onRowClick(item)}
-                                        className="relative table-row hover:shadow-lg transition-all duration-300 cursor-pointer border-b-2 border-neutral-100 group"
+                                        className="relative table-row hover:shadow-lg transition-all duration-300 cursor-pointer border-b-2 border-slate-100 group"
                                     >
                                         {/* Table row */}
-                                        <div className="absolute left-0 top-0 bottom-0 w-2 group-hover:bg-violet-500 group-hover:rounded-l-lg transition-all duration-300">
+                                        <div className="absolute left-0 top-0 bottom-0 w-2 group-hover:bg-amber-400 group-hover:rounded-l-lg transition-all duration-300">
                                         </div>
                                         {columns.map((column, index) => (
                                             //Table cell 
@@ -54,7 +54,7 @@ export default function Table({ columns, data, onRowClick, loadMoreData, hasMore
                                                 {item[column.accessor]}
                                             </div>
                                         ))}
-                                        <div className="absolute right-0 top-0 bottom-0 w-2 group-hover:bg-violet-500 group-hover:rounded-r-lg transition-all duration-300">
+                                        <div className="absolute right-0 top-0 bottom-0 w-2 group-hover:bg-amber-400 group-hover:rounded-r-lg transition-all duration-300">
                                         </div>
 
                                     </div>

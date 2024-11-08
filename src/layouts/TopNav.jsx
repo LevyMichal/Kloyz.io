@@ -35,7 +35,7 @@ export default function TopNav({ userRole, userAccreditation }) {
 
     return (
         <>
-            <div className="h-[8.3333vh] fixed top-0 right-0 left-[16.6667%] bg-white border-b-2 border-neutral-100 flex items-center justify-between p-4 space-x-4 md:space-x-6">
+            <div className="h-[8.3333vh] fixed top-0 right-0 left-[16.6667%] bg-white border-b border-slate-200 flex items-center justify-between p-4 space-x-4 md:space-x-6">
 
                 {/* Add organization and user buttons */}
                 {userRole === 'SUPERADMIN' && userAccreditation < 10 && (
@@ -46,16 +46,28 @@ export default function TopNav({ userRole, userAccreditation }) {
                             className="hidden sm:inline-block"
                         /> */}
                         <Link
-                            to={'/newOrg'}
-                            className="hidden sm:inline-block text-neutral-100 text-sm bg-violet-500 py-2 pl-2 pr-4 z-10 rounded-lg hover:bg-violet-700"
+                            to={'/newClient'}
+                            className="hidden sm:inline-block text-neutral-100 text-sm font-medium bg-amber-400 py-2 pl-2 pr-4 z-10 rounded-lg hover:bg-amber-500"
                         >
-                            + New Organization
+                            + New Client
                         </Link>
-                        <Button
+                        <Link
+                            to={'/newApartment'}
+                            className="hidden sm:inline-block text-black text-sm bg-white border border-slate-300 py-2 pl-2 pr-4 z-10 rounded-lg hover:bg-amber-500"
+                        >
+                            + New Apartment
+                        </Link>
+                        <Link
+                            to={'/newProvider'}
+                            className="hidden sm:inline-block text-black text-sm bg-white border border-slate-300 py-2 pl-2 pr-4 z-10 rounded-lg hover:bg-amber-500"
+                        >
+                            + New Provider
+                        </Link>
+                        {/* <Button
                             text={"+ New User"}
                             onClick={openAddUserPopup}
                             className="hidden sm:inline-block"
-                        />
+                        /> */}
                     </div>
                 )}
 

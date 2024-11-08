@@ -44,12 +44,12 @@ export default function CurrentUserProfile() {
                 </span>
                 <button
                     onClick={() => setIsSetting(true)}
-                    className="font-light text-sm text-neutral-500 text-right hover:text-violet-600 hover:font-normal ">
+                    className="font-light text-sm text-slate-500 text-right hover:text-amber-500 hover:font-normal ">
                     View Profile
                 </button>
             </div>
 
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-500 ">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 ">
                 <span className='font-medium text-white text-2xl'>
                     {name[0]}
                 </span>
@@ -60,7 +60,7 @@ export default function CurrentUserProfile() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                     <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" >
                     </div>
-                    <div className="h-3/4 w-3/5 bg-white border border-neutral-300 rounded-xl z-10 overflow-hidden">
+                    <div className="h-3/4 w-3/5 bg-white border border-slate-300 rounded-xl z-10 overflow-hidden">
 
                         {/* close icon */}
                         <div className="flex justify-end items-center pr-4 pt-4">

@@ -57,7 +57,7 @@ export default function Login() {
 
     return (
         <div className="flex flex-col lg:flex-row min-h-screen">
-            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-neutral-100">
+            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-slate-900">
                 <LeftSideLoginPage />
             </div>
 
@@ -89,7 +89,7 @@ export default function Login() {
                         <div className="flex justify-end pr-1">
                             <Link
                                 to="/forgot-password"
-                                className="text-violet-600 font-light hover:underline"
+                                className="text-amber-400 font-normal hover:underline"
                             >
                                 Forgot password?
                             </Link>
@@ -120,7 +120,7 @@ export default function Login() {
                             Don’t have an account?
                             <Link
                                 to={'/register'}
-                                className="text-violet-600 hover:underline font-semibold"
+                                className="text-amber-400 hover:underline font-semibold pl-2"
                             >
                                 Sign Up
                             </Link>

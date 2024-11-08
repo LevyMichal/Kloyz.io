@@ -13,7 +13,7 @@ export default function ForgotPassword() {
 
     return (
         <div className="flex flex-col lg:flex-row min-h-screen ">
-            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-neutral-100">
+            <div className="lg:w-7/12 xl:w-7/12 flex justify-center items-center bg-slate-900">
                 <LeftSideLoginPage />
             </div>
 

@@ -11,22 +11,22 @@ export default function SideBar({ userRole }) {
     }, [location.pathname]);
 
     return (
-        <div className="w-1/6 h-full fixed top-0 left-0 border-r-2 border-neutral-100">
+        <div className="w-1/6 h-full fixed top-0 left-0 border-r-2  bg-slate-900 border-neutral-100">
             <div className="flex flex-col h-screen">
-                <p className="text-3xl font-bold text-violet-500 p-8 cursor-pointer">
+                <p className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-amber-200 inline-block text-transparent bg-clip-text uppercase p-8 cursor-pointer">
                     Kloyz.io
                 </p>
 
                 {/* MAIN MENU */}
-                <div className="flex-grow space-y-4 px-8 border-b-2 border-neutral-100">
-                    <p className="text-sm font-light text-neutral-600">
+                <div className="flex-grow space-y-4 px-8 border-b border-slate-300">
+                    <p className="text-sm font-light text-slate-300">
                         MAIN MENU
                     </p>
 
                     {/* Home */}
                     <div
                         onClick={() => setActiveLink("/home")}
-                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/home" ? "text-violet-600 font-semibold" : "text-black hover:font-semibold"}`}
+                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/home" ? "text-amber-400 font-semibold" : "text-slate-300 hover:font-semibold"}`}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -47,42 +47,114 @@ export default function SideBar({ userRole }) {
                         </Link>
                     </div>
 
-                    {/* Organizations */}
-                    {userRole === 'SUPERADMIN' &&
-                        <div
-                            onClick={() => setActiveLink("/organizations")}
-                            className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/organizations" ? "text-violet-600 font-semibold" : "text-black hover:font-semibold"}`}
+                    {/* Clients */}
+                    <div
+                        onClick={() => setActiveLink("/organizations")}
+                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/organizations" ? "text-amber-400 font-semibold" : "text-slate-300 hover:font-semibold"}`}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className={`size-6 transition-colors group-hover:stroke-2 ${activeLink === "/organizations" && "stroke-2"}`}
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className={`size-6 transition-colors group-hover:stroke-2 ${activeLink === "/organizations" && "stroke-2"}`}
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
-                                />
-                            </svg>
-                            <Link to="/organizations" className="transition-colors">
-                                Organizations
-                            </Link>
-                        </div>
-                    }
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
+                            />
+                        </svg>
+                        <Link to="/organizations" className="transition-colors">
+                            Clients
+                        </Link>
+                    </div>
+
+                    {/* Apartments */}
+                    <div
+                        onClick={() => setActiveLink("/apartments")}
+                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/apartments" ? "text-amber-400 font-semibold" : "text-slate-300 hover:font-semibold"}`}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className={`size-6 transition-colors group-hover:stroke-2 ${activeLink === "/apartments" && "stroke-2"}`}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"
+                            />
+                        </svg>
+                        <Link to="/apartments" className="transition-colors">
+                            Apartments
+                        </Link>
+                    </div>
+
+                    {/* Providers */}
+                    <div
+                        onClick={() => setActiveLink("/providers")}
+                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/providers" ? "text-amber-400 font-semibold" : "text-slate-300 hover:font-semibold"}`}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className={`size-6 transition-colors group-hover:stroke-2 ${activeLink === "/providers" && "stroke-2"}`}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                            />
+                        </svg>
+                        <Link to="/providers" className="transition-colors">
+                            Providers
+                        </Link>
+                    </div>
+
+                    {/* Interventions */}
+                    <div
+                        onClick={() => setActiveLink("/interventions")}
+                        className={`group flex items-center space-x-2 w-full font-light cursor-pointer transition-colors ${activeLink === "/interventions" ? "text-amber-400 font-semibold" : "text-slate-300 hover:font-semibold"}`}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className={`size-6 transition-colors group-hover:stroke-2 ${activeLink === "/interventions" && "stroke-2"}`}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
+                            />
+                        </svg>
+                        <Link to="/interventions" className="transition-colors">
+                            Interventions
+                        </Link>
+                    </div>
+
                 </div>
+
 
                 {/* PREFERENCE */}
                 <div className="space-y-4 px-8 pt-8 pb-8">
-                    <p className="text-sm font-light text-neutral-600">
+                    <p className="text-sm font-light text-slate-300">
                         PREFERENCE
                     </p>
 
                     {/* Settings */}
                     <button
-                        className="group flex items-center text-black font-light hover:font-semibold"
+                        className="group flex items-center text-slate-300 font-light hover:font-semibold"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
