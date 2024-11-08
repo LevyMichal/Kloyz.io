@@ -1,0 +1,95 @@
+const quotes = [
+    {
+        id: '1',
+        amount: '150',
+        status: 'approved',
+        interventionId: '1',
+        providerId: '5',
+    },
+    {
+        id: '2',
+        amount: '300',
+        status: 'not approved',
+        interventionId: '2',
+        providerId: '2',
+    },
+    {
+        id: '3',
+        amount: '500',
+        status: 'approved',
+        interventionId: '3',
+        providerId: '1',
+    },
+    {
+        id: '4',
+        amount: '120',
+        status: 'not approved',
+        interventionId: '4',
+        providerId: '4',
+    },
+    {
+        id: '5',
+        amount: '400',
+        status: 'approved',
+        interventionId: '5',
+        providerId: '3',
+    },
+    {
+        id: '6',
+        amount: '350',
+        status: 'approved',
+        interventionId: '6',
+        providerId: '2',
+    },
+    {
+        id: '7',
+        amount: '200',
+        status: 'approved',
+        interventionId: '7',
+        providerId: '5',
+    },
+    {
+        id: '8',
+        amount: '450',
+        status: 'approved',
+        interventionId: '8',
+        providerId: '1',
+    },
+    {
+        id: '9',
+        amount: '600',
+        status: 'not approved',
+        interventionId: '9',
+        providerId: '3',
+    },
+    {
+        id: '10',
+        amount: '250',
+        status: 'not approved',
+        interventionId: '10',
+        providerId: '4',
+    },
+    {
+        id: '11',
+        amount: '700',
+        status: 'approved',
+        interventionId: '11',
+        providerId: '1',
+    },
+    {
+        id: '12',
+        amount: '180',
+        status: 'approved',
+        interventionId: '12',
+        providerId: '5',
+    },
+    {
+        id: '13',
+        amount: '320',
+        status: 'approved',
+        interventionId: '13',
+        providerId: '2',
+    }
+];
+
+export default quotes;
